@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MBBS Study Tracker — Nutritional Pathology</title>
+<style>
+:root{color-scheme:light;--ink:#25233a;--muted:#6d6b7d;--line:#e5e3ef;--panel:#fff;--bg:#f6f5fb;--accent:#6750a4;--accent2:#8b79c9;--good:#21845b}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+.wrap{max-width:960px;margin:0 auto;padding:20px 14px 44px}
+header{background:linear-gradient(135deg,#453475,#7965b5);color:white;border-radius:20px;padding:24px 20px;box-shadow:0 8px 24px #30204d20}
+h1{font-size:clamp(1.35rem,4vw,2rem);line-height:1.2;margin:0 0 8px}
+header p{margin:0;opacity:.92}
+.overall{background:var(--panel);padding:18px;border:1px solid var(--line);border-radius:16px;margin:16px 0}
+.progress-head{display:flex;justify-content:space-between;gap:12px;align-items:center;font-weight:700;margin-bottom:8px}
+progress{display:block;width:100%;height:13px;border:0;border-radius:99px;overflow:hidden;accent-color:var(--accent)}
+progress::-webkit-progress-bar{background:#ece9f5;border-radius:99px}
+progress::-webkit-progress-value{background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px}
+progress::-moz-progress-bar{background:var(--accent);border-radius:99px}
+.sub{color:var(--muted);font-size:.9rem;margin-top:7px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+button{border:1px solid var(--line);background:white;color:var(--ink);border-radius:11px;padding:10px 14px;font:inherit;font-weight:650;cursor:pointer}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #b7a9e7;outline-offset:2px}
+button.primary{background:var(--accent);border-color:var(--accent);color:white}
+.topic{background:var(--panel);border:1px solid var(--line);border-radius:16px;margin:14px 0;overflow:hidden}
+summary{list-style:none;cursor:pointer;padding:17px 16px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:before{content:"＋";color:var(--accent);font-weight:800;margin-right:7px}
+details[open] summary:before{content:"−"}
+.topic-title{font-weight:800}
+.topic-meta{color:var(--muted);font-size:.87rem;display:block;font-weight:500;margin-top:3px}
+.topic-percent{color:var(--accent);font-weight:800;white-space:nowrap}
+.topic-progress{padding:0 16px 14px}
+.questions{border-top:1px solid var(--line);padding:4px 16px 12px}
+.question{display:flex;gap:11px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #f0eef6}
+.question:last-child{border-bottom:0}
+.question input{width:20px;height:20px;margin:2px 0 0;flex:0 0 auto;accent-color:var(--good)}
+.question label{cursor:pointer;flex:1}
+.question input:checked+label{color:#777486;text-decoration:line-through;text-decoration-thickness:1px}
+.exam{color:var(--muted);font-size:.9rem}
+.note{color:var(--muted);font-size:.88rem;margin:16px 2px 0}
+@media(min-width:650px){.wrap{padding:28px 22px 50px}header{padding:30px}summary{padding:19px 20px}.questions{padding:4px 20px 14px}.topic-progress{padding:0 20px 16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>MBBS Study Tracker</h1>
+<p>Nutritional Pathology + the additional questions supplied under “Others”</p>
+</header>
+<section class="overall" aria-label="Overall progress">
+<div class="progress-head"><span>Overall progress</span><span id="overallText">0%</span></div>
+<progress id="overallBar" value="0" max="100">0%</progress>
+<div class="sub" id="countText">0 of 8 questions completed</div>
+</section>
+<div class="toolbar">
+<button class="primary" id="expandBtn" type="button">Expand all topics</button>
+<button id="collapseBtn" type="button">Collapse all topics</button>
+<button id="resetBtn" type="button">Reset progress</button>
+</div>
+<main>
+<details class="topic" open>
+<summary><span><span class="topic-title">1. Nutritional Pathology</span><span class="topic-meta">Protein-energy malnutrition, micronutrient deficiencies and vitamin A</span></span><span class="topic-percent">0%</span></summary>
+<div class="topic-progress"><progress value="0" max="100"></progress></div>
+<div class="questions">
+<div class="question"><input type="checkbox" id="q1"><label for="q1">Short note: Protein-energy malnutrition (PEM). <span class="exam">(DU-22M, 19/17Nov)</span></label></div>
+<div class="question"><input type="checkbox" id="q2"><label for="q2">Short note: Deficiency of zinc. <span class="exam">(DU-08Ju)</span></label></div>
+<div class="question"><input type="checkbox" id="q3"><label for="q3">Short note: Kwashiorkor. <span class="exam">(DU-10Ja)</span></label></div>
+<div class="question"><input type="checkbox" id="q4"><label for="q4">Short note: Beriberi. <span class="exam">(DU-13Ja, 10Ju)</span></label></div>
+<div class="question"><input type="checkbox" id="q5"><label for="q5">What are the dietary sources of vitamin A? <span class="exam">(DU-08Ju)</span></label></div>
+<div class="question"><input type="checkbox" id="q6"><label for="q6">What are the clinical manifestations of vitamin A deficiency? <span class="exam">(DU-08Ju)</span></label></div>
+</div>
+</details>
+<details class="topic" open>
+<summary><span><span class="topic-title">2. Other Questions</span><span class="topic-meta">Environmental pathology and a clinical lesion question</span></span><span class="topic-percent">0%</span></summary>
+<div class="topic-progress"><progress value="0" max="100"></progress></div>
+<div class="questions">
+<div class="question"><input type="checkbox" id="q7"><label for="q7">Short note: Environmental pollution. <span class="exam">(Exam year not provided)</span></label></div>
+<div class="question"><input type="checkbox" id="q8"><label for="q8">A 70-year-old man has had a black ulcerated lesion on his right great toe for six months, rapidly spreading over the last two months. Give the differential diagnosis. How will you confirm the disease? <span class="exam">(DU-17Ja)</span></label></div>
+</div>
+</details>
+<p class="note">All 8 questions supplied in this message are included. The two questions under “Others” are kept in a separate section rather than being omitted.</p>
+<p class="note">Progress is saved automatically in this browser on this device using local storage where supported. It may not transfer to another browser/device and can be lost if browser data is cleared.</p>
+</main>
+</div>
+<script>
+(() => {
+ const KEY='mbbs-nutritional-pathology-tracker-v1';
+ const boxes=[...document.querySelectorAll('.question input[type="checkbox"]')];
+ const topics=[...document.querySelectorAll('details.topic')];
+ function save(){try{const s={};boxes.forEach(b=>s[b.id]=b.checked);localStorage.setItem(KEY,JSON.stringify(s));}catch(e){}}
+ function update(){
+  const done=boxes.filter(b=>b.checked).length;
+  const pct=boxes.length?Math.round(done/boxes.length*100):0;
+  document.getElementById('overallBar').value=pct;
+  document.getElementById('overallText').textContent=pct+'%';
+  document.getElementById('countText').textContent=`${done} of ${boxes.length} questions completed`;
+  topics.forEach(t=>{const bs=[...t.querySelectorAll('.question input')],n=bs.filter(b=>b.checked).length,p=bs.length?Math.round(n/bs.length*100):0;t.querySelector('.topic-percent').textContent=`${p}% · ${n}/${bs.length}`;t.querySelector('.topic-progress progress').value=p;});
+ }
+ try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');boxes.forEach(b=>b.checked=Boolean(s[b.id]));}catch(e){}
+ boxes.forEach(b=>b.addEventListener('change',()=>{update();save();}));
+ document.getElementById('expandBtn').addEventListener('click',()=>topics.forEach(t=>t.open=true));
+ document.getElementById('collapseBtn').addEventListener('click',()=>topics.forEach(t=>t.open=false));
+ document.getElementById('resetBtn').addEventListener('click',()=>{if(confirm('Reset all question checkboxes and set progress to 0%? This cannot be undone.')){boxes.forEach(b=>b.checked=false);save();update();}});
+ update();
+})();
+</script>
+</body>
+</html>
